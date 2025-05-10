@@ -1,0 +1,13 @@
+accelerate
+opencv-python
+pillow
+numpy
+transformers
+diffusers==0.32.2
+safetensors
+peft
+huggingface-hub
+datasets
+einops
+basicsr
+Omegaconf

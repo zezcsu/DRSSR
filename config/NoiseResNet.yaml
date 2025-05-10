@@ -1,0 +1,11 @@
+#参照
+model:
+  noiseresnet:
+    target: models.noiseresnet.NoiseResNet
+    params:
+      in_channels: 4
+      out_channels: 4
+
+
+train:
+  noiseresnet_path: "checkpoint/noisemodel/noiseresnet_6500.pth"

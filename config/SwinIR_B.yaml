@@ -1,0 +1,25 @@
+#参照
+model:
+  swinir:
+    target: models.swinir.SwinIR
+    params:
+      upscale: 4
+      in_chans: 3
+      img_size: 48
+      window_size: 8
+      img_range: 1.
+      depths: [6, 6, 6, 6, 6, 6, 6, 6]
+      embed_dim: 180
+      num_heads: [6, 6, 6, 6, 6, 6, 6, 6]
+      mlp_ratio: 2
+      upsampler: 'pixelshuffle'
+      resi_connection: '1conv'
+  doubleunet:
+    target: models.doubleunet.DoubleUNet
+    params:
+      in_channels: 3
+      out_channels: 3
+
+train:
+  swinir_path: "checkpoint/swinir/SwinIR_B_140000.pth"
+  doubleunet_path: "checkpoint/diffmodel/diffmodel_47500.pth"

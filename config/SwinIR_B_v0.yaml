@@ -1,0 +1,29 @@
+#参照,不带放大四倍的
+model:
+  swinir:
+    target: models.swinir.SwinIR
+    params:
+      img_size: 64
+      patch_size: 1
+      in_chans: 3
+      embed_dim: 180
+      depths: [6, 6, 6, 6, 6, 6,6]
+      num_heads: [6, 6, 6, 6, 6, 6,6]
+      window_size: 8
+      mlp_ratio: 2
+      sf: 8
+      img_range: 1.0
+      upsampler: "nearest+conv"
+      resi_connection: "1conv"
+      unshuffle: True
+      unshuffle_scale: 8
+  doubleunet:
+    target: models.doubleunet.DoubleUNet
+    params:
+      in_channels: 3
+      out_channels: 3
+
+train:
+
+  swinir_path: "checkpoint/swinir/0100000.pt"
+  doubleunet_path: "checkpoint/doublenet/0055000.pt"

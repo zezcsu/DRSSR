@@ -1,0 +1,11 @@
+#参照
+model:
+  srganresnet:
+    target: models.srganresnet.SRGANResNet
+    params:
+      in_channels: 4
+      out_channels: 4
+
+
+train:
+  noiseresnet_path: "train_srganmodel_nonoise/example/checkpoints/checkpoint-11000/noiseresnet.pth"

@@ -1,0 +1,26 @@
+accelerate launch train_controlnext.py --pretrained_model_name_or_path "checkpoint/stable-diffusion-xl-refiner-1.0" \
+--pretrained_vae_model_name_or_path "checkpoint/sdxl-vae-fp16-fix" \
+--variant fp16 \
+--use_safetensors \
+--output_dir "train_1024size_600_1000_STEPS_1GPU_3000START/example" \
+--logging_dir "logs" \
+--num_train_epochs 5 \
+--resolution 1024 \
+--gradient_checkpointing \
+--set_grads_to_none \
+--proportion_empty_prompts 0.2 \
+--controlnet_scale_factor 1.0 \
+--mixed_precision fp16 \
+--enable_xformers_memory_efficient_attention \
+--dataset_name "img1024" \
+--image_column image \
+--caption_column caption \
+--validation_prompt "satellite image, buildings, road, trees, car." \
+--validation_image "examples/rssr/HRRSD_18118_3.jpg" \
+--num_validation_images 4 \
+--train_batch_size 8 \
+--validation_steps 100 \
+--first_stage_model_config "config/SwinIR_B.yaml" \
+--cache_dir cache \
+--pretrained_unet_model_name_or_path "train_1024size_600_1000_STEPS_1GPU_1000START/example/checkpoints/checkpoint-2000/unet_weight_increasements.safetensors" \
+--controlnet_model_name_or_path "train_1024size_600_1000_STEPS_1GPU_1000START/example/checkpoints/checkpoint-2000/controlnet.safetensors"
