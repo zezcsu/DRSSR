@@ -20,5 +20,5 @@ accelerate launch train_controlnext_sdxl_base_v2.py --pretrained_model_name_or_p
 --validation_steps 100 \
 --first_stage_model_config "config/hat_mask.yaml" \
 --cache_dir cache \
---caption_column txt 
+--caption_column txt \
 --image_column image \
